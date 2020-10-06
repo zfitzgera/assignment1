@@ -14,10 +14,15 @@ public class AddingMachine
 {
 	//total initialized to 0. It stores computation results
 	private int total;
+	//history stores computation history
+	private String history;
 	
 	public AddingMachine()
 	{
 		total = 0;
+		//initialize history to 0, because the AddingMachine
+		//starts with a value of 0
+		history = "0";
 	}
 
 	/**
@@ -26,7 +31,7 @@ public class AddingMachine
 	*/
 	public int getTotal()
 	{
-		return 0;
+		return total;
 	}
 
 	/**
@@ -35,7 +40,9 @@ public class AddingMachine
 	* @param value integer to add to the current total
 	*/
 	public void add(int value)
-	{	
+	{
+		history += " + " + value;
+		total += value;
 	}
 
 	/**
@@ -45,6 +52,8 @@ public class AddingMachine
 	*/
 	public void subtract(int value)
 	{
+		history += " - " + value;
+		total -= value;
 	}
 
 	/**
@@ -53,7 +62,7 @@ public class AddingMachine
 	*/
 	public String toString()
 	{
-		return "";
+		return history;
 	}
 
 	/**
@@ -61,5 +70,7 @@ public class AddingMachine
 	*/
 	public void clear()
 	{
+		total = 0;
+		history = "0";
 	}
 }
